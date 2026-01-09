@@ -4,7 +4,6 @@ import api from '../config/axios';
 import './Performance.css';
 
 const Performance = () => {
-  const { user } = useAuth();
   const [metrics, setMetrics] = useState(null);
   const [loading, setLoading] = useState(true);
 
