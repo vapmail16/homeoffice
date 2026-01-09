@@ -114,21 +114,21 @@ Expected response:
 
 ### Step 1: Create Frontend Service in DCDeploy
 
-1. **Go to DCDeploy Dashboard**
+1. **Go to DCDeploy Dashboard**: https://dash.dcdeploy.com
 2. **Click "New Service"** → **"Web Service"**
 3. **Configure Service**:
 
    **Basic Settings**:
    - **Name**: `homeoffice-frontend`
-   - **Repository**: Your GitHub repository URL
+   - **Repository**: `https://github.com/vapmail16/homeoffice.git`
    - **Branch**: `main`
-   - **Context**: `./frontend`
+   - **Context**: `./frontend` ⚠️ **Important: Set this!**
 
    **Build Settings**:
    - **Dockerfile Path**: `./frontend/Dockerfile`
-   - **Build Arguments**:
+   - **Build Arguments**: ⚠️ **CRITICAL - Set this:**
      ```
-     REACT_APP_API_URL=https://your-backend-url.dcdeploy.cloud
+     REACT_APP_API_URL=https://backend-lg6o89g7r9.dcdeploy.cloud
      ```
    - **Port**: `80`
 
