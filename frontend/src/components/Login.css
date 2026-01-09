@@ -17,9 +17,18 @@
 
 .login-card h1 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   color: #667eea;
   font-size: 28px;
+}
+
+.motto {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #764ba2;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
 }
 
 .auth-toggle {

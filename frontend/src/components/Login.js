@@ -51,6 +51,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-card">
         <h1>Home Office</h1>
+        <p className="motto">Happy Wife, Happy Life</p>
         <div className="auth-toggle">
           <button
             className={isLogin ? 'active' : ''}

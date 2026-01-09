@@ -77,10 +77,12 @@ router.post('/login', async (req, res) => {
     }
 
     // Generate JWT token
+    // Set to 1 year expiration for convenience (users stay logged in)
+    // For a home office app, this is reasonable vs requiring frequent logins
     const token = jwt.sign(
       { userId: user.id, username: user.username, role: user.role },
       process.env.JWT_SECRET,
-      { expiresIn: '7d' }
+      { expiresIn: '365d' } // 1 year - users stay logged in unless they explicitly logout
     );
 
     res.json({
