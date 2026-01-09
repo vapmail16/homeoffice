@@ -1,0 +1,15 @@
+{
+  "name": "homeoffice-task-reminder",
+  "version": "1.0.0",
+  "description": "Simple task reminder app with JWT authentication",
+  "main": "index.js",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "setup:db": "cd backend && npx prisma migrate dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

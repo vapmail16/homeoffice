@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String   @id @default(uuid())
+  username      String   @unique
+  password      String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  role          String   @default("husband")
+  assignedTasks Task[]   @relation("AssignedTasks")
+  createdTasks  Task[]   @relation("CreatedTasks")
+}
+
+model Task {
+  id            String    @id @default(uuid())
+  title         String
+  description   String?
+  createdDate   DateTime  @default(now())
+  expectedDate  DateTime?
+  comments      String?
+  userId        String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  completedDate DateTime?
+  isCompleted   Boolean   @default(false)
+  assignedToId  String
+  isBacklog     Boolean   @default(false)
+  assignedTo    User      @relation("AssignedTasks", fields: [assignedToId], references: [id], onDelete: Cascade)
+  user          User      @relation("CreatedTasks", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([assignedToId])
+  @@index([isCompleted])
+  @@index([isBacklog])
+}
